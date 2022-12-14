@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <div class="listado">
+    {% for articulo in listaArticulos %}
+
+        <div class="articulo">
+            <h4>{{articulo.nombre}}</h4>
+            <div class="product-img"><img src="{{ asset('imagenes') }}/{{articulo.imagen}}"/></div>
+            <div class="stock">Disponibles: {{articulo.stock}}</div>
+            <p>{{articulo.descripcion_corta}}</p>
+            <a href="/tienda/articulo/{{articulo.id}}">Ver detalle</a>
+        </div>
+        
+    {% endfor %}
+    </div>
+{% endblock %}

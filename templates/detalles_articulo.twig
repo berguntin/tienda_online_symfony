@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <div class="detalle-articulo">
+        <h3>{{articulo.nombre}}</h3>
+        <img id="imagen-articulo-detalle" src="{{ asset('imagenes') }}/{{articulo.imagen}}"/>
+        <p>{{articulo.descripcion_larga}}<p>
+        <p>Disponibles:{{articulo.stock}}</p>
+        <a>Comprar</a>
+    </div>
+
+{% endblock %}

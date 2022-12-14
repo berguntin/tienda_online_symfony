@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+<div id="comentarios">
+<h2>Valoraciones de nuestros clientes</h2>
+    {% for comentario in sugerencias %}
+        <div class="comentario">
+            <img src="{{asset('imagenes')}}/user.png" width="25px"/>
+            <h5>{{comentario.usuario}}</h5>
+            <p>{{comentario.sugerencia}}</p>
+        </div>
+   {% endfor %}
+   <div>
+        <h3>Deja tu comentario</h3>
+        {{form_start(formulario)}}
+        {{form_widget(formulario)}}
+        {{form_end(formulario)}}
+    </div>
+</div>
+{% endblock %}
