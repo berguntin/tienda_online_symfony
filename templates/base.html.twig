@@ -2,18 +2,161 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>{% block title %}Mi tienda Online{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🛒</text></svg>">
+        <!--Definición de estilos-->
+        <style>
+            * {
+                font-family: "Arial";
+                box-sizing:border-box;
+            }
+            a {
+                text-decoration:none;
+                color:inherit;
+            }
+            header {
+                text-align:center;
+                margin-bottom: 50px;
+                background-color: #472183;
+                height:10vh;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                color:#F1F6F5;
+            }
+            nav {
+                overflow:hidden;
+                display:flex;
+                justify-content:center;
+            }
+            nav ul {
+                list-style:none;
+                
+            }
+            nav ul li {
+                float:left;
+                margin:10px;
+                background-color:#4B56D2;
+                padding:10px;
+                color: white;
+                border-radius:5%;
+            }
+            nav ul li:hover{
+                background-color:#82C3EC;
+            }
+            .main{
+                display:flex;
+                margin:25px auto;
+                justify-content:center;
+            }
+            .listado {
+                display:flex;
+                flex-direction:row;
+                justify-content:center;
+                flex-wrap:wrap;
+            }
+            .articulo {
+                border:2px solid #F7F7F8;
+                margin: 15px;
+                padding: 5px;
+                width: 250px;
+                height: 350px;
+                position: relative;
+            }
+            .articulo:hover{
+                transform:scale(1.1)
+            }
+            .articulo h4 {
+                text-align: center;
+            }
+            .articulo a {
+                background-color: #227C70;
+                color:white;
+                border-radius: 5%;
+                padding:5px;
+                text-decoration:none;
+                position: absolute;
+                bottom: 2px;
+                right:2px;              
+            }
+            .articulo a:hover{
+                background-color:#64A39A;
+            }
+            .product-img {
+                display:flex;
+                justify-content:center;
+                height:40%;
+                margin: 10px auto;
+            }
+            #imagen-articulo-detalle{
+                width:350px;
+            }
+            .detalle-articulo{
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items: center;
+                width:75%;
+                margin: 15px;
+            }
+            .detalle-articulo a {
+                background-color: #4F5E7F;
+                padding:15px;
+                border-radius: 5%;
+                color: white;
+            }
+            form {
+                padding: 15px;
+                text-align:center;
+            }
+            form label, input {
+                margin:10px
+            }
+            form input {
+                border-radius: 5%;
+            }
+            form button {
+                background-color: #009EFF;
+                border:none;
+                padding:10px;
+                color:white;
+            }
+            #comentarios {
+                
+                width: 50vw;
+            }
+            .comentario{
+                background-color: #F1E4E4;
+                padding: 5px;
+            }
+            footer {
+                height:10vh;
+                background-color:#F1F6F5;
+                padding: 20px;
+                text-align:center;
+            }
+            </style>
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <!--Cabecera de la página-->
+    <a href="/"><header>
+    <h1> Tienda Online de informática </h1>
+    </header></a>
+    <!--menu de navegación-->
+    <nav>
+        <ul>
+            <li><a href="/registro">Registrarse</a></li>
+            <li><a href="/sugerencias">Valoraciones</a></li>
+        </ul>
+    </nav>
+    <div class="main">
+    <!--carga del contenido-->
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+         &copy;2022 Hugo Bermúdez Guntín || Tienda online de informática || Tarea 5 DWES
+    </footer>
     </body>
 </html>
